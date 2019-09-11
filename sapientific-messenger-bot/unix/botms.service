@@ -1,0 +1,14 @@
+[Unit]
+Description=messenger-bot
+After=network.target
+
+[Service]
+Environment=
+Type=simple
+User=root
+ExecStart=/usr/bin/node /home/ubuntu/bot/sapientific-messenger-bot/index.js
+WorkingDirectory=/home/ubuntu/bot/sapientific-messenger-bot
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
