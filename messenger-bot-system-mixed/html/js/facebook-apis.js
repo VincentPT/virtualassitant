@@ -2,7 +2,7 @@ $(document).ready(function() {
   $.ajaxSetup({ cache: true });
   $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
     FB.init({
-      appId: '518142272016945',
+      appId: '468383883653735',
       version: 'v3.2'
     });     
     $('#loginbutton,#feedbutton').removeAttr('disabled');

@@ -1,19 +1,19 @@
 var conf = module.exports = {
 	graphApiBase: 'https://graph.facebook.com/v3.2',
 	ssl : {
-		certificatePath:'/etc/letsencrypt/live/c6f95639.ngrok.io/cert.pem',
-		privateKeyPath : '/etc/letsencrypt/live/c6f95639.ngrok.io/privkey.pem',
-                ca: '/etc/letsencrypt/live/c6f95639.ngrok.io/chain.pem'
+		certificatePath:'',
+		privateKeyPath : '',
+                ca: ''
 	},
     storage : {
-        host : 'localhost',
-        database : 'sbot',
-        user : 'root',
-        password : 'root',
+        "host" : "localhost",
+        "database" : "botmntsys",
+        "user" : "root",
+        "password" : "mi1234@s"
     },
 	app : {
-		id : '518142272016945',
-		secretKey: '754efebeef094044bcd013c1ef0c8f2e'
+		id : '468383883653735',
+		secretKey: 'abe170b678fa07e3d38b0a10f9fd7197'
 	},
 	port: 1338,
 

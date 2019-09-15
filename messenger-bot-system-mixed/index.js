@@ -551,6 +551,8 @@ function processDeletePermissionProcedure(userAccessToken, callback) {
 
 let testMessages = conf.messaging.testMessages;
 let testMessagesMap = new Map();
+let VERIFY_TOKEN = conf.webhookVerificationToken;
+let pageAccessToken = conf.messaging.pageAccessToken;
 testMessages.forEach(function(textMessage){
     testMessagesMap.set(textMessage.command, textMessage.reply);
 });
@@ -653,7 +655,7 @@ function sendMessageToMessenger (userId, recipientId, textMessage, messageSentCa
             try {
                 let options = {
                     method: 'POST',
-                    url:  config.graphApiBase + '/me/messages',
+                    url:  conf.graphApiBase + '/me/messages',
                     qs: { access_token: pageAccessToken },
                     headers:
                     {
@@ -671,7 +673,7 @@ function sendMessageToMessenger (userId, recipientId, textMessage, messageSentCa
 
                 request(options, function (error, response, body) {
                     if (error) {                
-                        console.log('failed to send message to user id = ' + userId + ', error:' + error.messag);
+                        console.log('failed to send message to user id = ' + userId + ', error:' + error.message);
                     }
                     else {
                         console.log('sent message to user id = ' + userId);
@@ -680,7 +682,7 @@ function sendMessageToMessenger (userId, recipientId, textMessage, messageSentCa
                 });
             }
             catch (ex) {
-                console.log('failed to send message to user id = ' + userId + ', error:' + error.messag);
+                console.log('failed to send message to user id = ' + userId + ', error:' + ex.message);
             }
         });
     });    

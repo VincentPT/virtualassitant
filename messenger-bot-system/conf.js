@@ -14,5 +14,5 @@ var conf = module.exports = {
 		id : '518142272016945',
 		secretKey: '754efebeef094044bcd013c1ef0c8f2e'
 	},
-	port: 12032
+	port: 1338
 };
