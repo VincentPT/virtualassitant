@@ -23,11 +23,13 @@ var mysqlConnPool = mysql.createPool(conf.storage);
 
 var httpsServer;
 if (conf.hasOwnProperty('ssl') && fs.existsSync(conf.ssl.privateKeyPath) && fs.existsSync(conf.ssl.certificatePath)) {
-    let privateKey = fs.readFileSync(conf.ssl.privateKeyPath);
-    let certificate = fs.readFileSync(conf.ssl.certificatePath);
+    let privateKey = fs.readFileSync(conf.ssl.privateKeyPath, 'utf8');
+    let certificate = fs.readFileSync(conf.ssl.certificatePath, 'utf8');
+    let chain = fs.readFileSync(conf.ssl.ca,'utf8');
     const options = {
         key: privateKey,
-        cert: certificate
+        cert: certificate,
+	ca: chain
     };
 
     httpsServer = https.createServer(options, app);
